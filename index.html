@@ -207,14 +207,27 @@
         .hero-content {
             position: relative;
             z-index: 10;
-            text-align: center;
-            max-width: 900px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        .hero-text {
+            flex: 1;
+            text-align: left;
         }
 
         .hero-logo {
-            width: 180px;
+            /**width: 180px;
             height: 180px;
             margin: 0 auto 3rem;
+            animation: fadeInScale 1.2s ease-out;**/
+            width: 350px;
+            height: 350px;
+            flex-shrink: 0;
             animation: fadeInScale 1.2s ease-out;
         }
 
@@ -437,7 +450,7 @@
             overflow: hidden;
             background-image: url('photos/HERO_1.webp');
             background-size: cover;
-            background-position: center;
+            background-position: center top;
         }
 
         .about-image-inner::before {
@@ -880,6 +893,42 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
+            /**.services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }**/
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-logo {
+                width: 250px;
+                height: 250px;
+                order: -1;
+            }
+
+            .hero-cta-group {
+                justify-content: center;
+            }
+
+            .about-image-frame {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -894,7 +943,7 @@
             }
         }
 
-        @media (max-width: 768px) {
+        /**@media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
@@ -939,7 +988,154 @@
             .about-credentials {
                 justify-content: center;
             }
-        }
+        }**/
+
+        @media (max-width: 768px) {
+              .hero-logo {
+                  width: 180px;
+                  height: 180px;
+              }
+
+              .about-image-frame {
+                  padding: 1rem;
+                  max-width: 350px;
+              }
+
+              .about-image-frame::before {
+                  transform: translate(-10px, -10px);
+              }
+
+              .about-credentials {
+                  flex-direction: column;
+                  gap: 2rem;
+                  align-items: center;
+              }
+
+              .credential {
+                  width: 100%;
+                  max-width: 200px;
+              }
+
+              /* Email word-break */
+              .contact-item-value {
+                  word-break: break-word;
+                  font-size: 0.9rem;
+              }
+
+              .nav-links {
+                  display: none;
+              }
+
+              .nav-cta {
+                  display: none;
+              }
+
+              .mobile-menu-btn {
+                  display: flex;
+              }
+
+              .services-grid {
+                  grid-template-columns: 1fr;
+              }
+
+              .features-grid {
+                  grid-template-columns: 1fr;
+              }
+
+              .contact-wrapper {
+                  grid-template-columns: 1fr;
+              }
+
+              .footer-content {
+                  flex-direction: column;
+                  gap: 1.5rem;
+                  text-align: center;
+              }
+
+              .hero-cta-group {
+                  flex-direction: column;
+                  align-items: center;
+              }
+
+              .btn-primary, .btn-secondary {
+                  width: 100%;
+                  max-width: 300px;
+                  justify-content: center;
+              }
+          }
+
+          @media (max-width: 480px) {
+              .hero {
+                  padding: 6rem 4% 3rem;
+              }
+
+              .hero-tagline {
+                  font-size: 2rem;
+              }
+
+              .hero-subtitle {
+                  font-size: 0.75rem;
+                  letter-spacing: 0.2em;
+              }
+
+              .hero-logo {
+                  width: 140px;
+                  height: 140px;
+              }
+
+              .nav-logo-text {
+                  font-size: 1rem;
+              }
+
+              .nav-logo-icon {
+                  width: 35px;
+                  height: 35px;
+              }
+
+              section {
+                  padding: 5rem 4%;
+              }
+
+              .section-title {
+                  font-size: 1.75rem;
+              }
+
+              .about-image-frame {
+                  max-width: 280px;
+                  padding: 0.75rem;
+              }
+
+              .contact-form {
+                  padding: 2rem 1.5rem;
+              }
+
+              .credential-number {
+                  font-size: 2.5rem;
+              }
+
+              .service-card,
+              .feature {
+                  padding: 2rem 1.5rem;
+              }
+              .btn-primary, .btn-secondary {
+                  padding: 1rem 2rem;
+                  font-size: 0.75rem;
+              }
+              .warta-badge {
+                 flex-direction: column;
+                 gap: 1rem;
+                 padding: 2rem 4%;
+             }
+
+             .warta-badge-text {
+                 font-size: 0.7rem;
+             }
+
+             .warta-logo {
+                 height: 30px;
+            }
+          }
+          
     </style>
 </head>
 <body>
