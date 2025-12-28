@@ -231,6 +231,15 @@
             animation: fadeInScale 1.2s ease-out;
         }
 
+        .hero-cta-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+
         @keyframes fadeInScale {
             from { opacity: 0; transform: scale(0.8); }
             to { opacity: 1; transform: scale(1); }
@@ -268,13 +277,6 @@
             animation: fadeInUp 1s ease-out 0.5s both;
         }
 
-        .hero-cta-group {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.7s both;
-        }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--gold-main), var(--gold-light), var(--gold-shine));
@@ -906,18 +908,26 @@
                 gap: 4rem;
             }**/
             .hero-content {
-                flex-direction: column;
-                text-align: center;
+              position: relative;
+              z-index: 10;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 4rem;
+              max-width: 1400px;
+              width: 100%;
             }
 
             .hero-text {
-                text-align: center;
+              flex: 1;
+              text-align: left;
             }
 
             .hero-logo {
-                width: 250px;
-                height: 250px;
-                order: -1;
+              width: 350px;
+              height: 350px;
+              flex-shrink: 0;
+              animation: fadeInScale 1.2s ease-out;
             }
 
             .hero-cta-group {
@@ -1135,7 +1145,7 @@
                  height: 30px;
             }
           }
-          
+
     </style>
 </head>
 <body>
@@ -1181,6 +1191,23 @@
         <div class="hero-decoration"></div>
 
         <div class="hero-content">
+            <div class="hero-text">
+              <h1 class="hero-tagline">
+                <span class="gold">Spokój,</span> który masz<br>pod kontrolą
+              </h1>
+
+              <p class="hero-subtitle">Piotr Zdziechowski — Agent Ubezpieczeniowy</p>
+
+              <div class="hero-cta-group">
+                <a href="#kontakt" class="btn-primary">
+                    <span>Umów konsultację</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#oferta" class="btn-secondary">Poznaj ofertę</a>
+              </div>
+            </div>
             <svg class="hero-logo" viewBox="0 0 200 200">
                 <defs>
                     <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1208,22 +1235,6 @@
                 <text x="100" y="125" text-anchor="middle" font-family="Cormorant Garamond, serif"
                       font-size="90" font-weight="700" fill="url(#goldGrad)" filter="url(#glow)">Σ</text>
             </svg>
-
-            <h1 class="hero-tagline">
-                <span class="gold">Spokój,</span> który masz<br>pod kontrolą
-            </h1>
-
-            <p class="hero-subtitle">Piotr Zdziechowski — Agent Ubezpieczeniowy</p>
-
-            <div class="hero-cta-group">
-                <a href="#kontakt" class="btn-primary">
-                    <span>Umów konsultację</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-                <a href="#oferta" class="btn-secondary">Poznaj ofertę</a>
-            </div>
         </div>
 
         <div class="scroll-indicator">
