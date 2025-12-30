@@ -1172,6 +1172,46 @@
         }
       }
 
+      .form-message {
+          padding: 12px;
+          margin-bottom: 20px;
+          border-radius: 8px;
+          display: none;
+          font-size: 14px;
+      }
+
+      .form-message.success {
+          background-color: #d4edda;
+          color: #155724;
+          border: 1px solid #c3e6cb;
+          display: block;
+      }
+
+      .form-message.error {
+          background-color: #f8d7da;
+          color: #721c24;
+          border: 1px solid #f5c6cb;
+          display: block;
+      }
+
+      .btn-primary:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+      }
+
+      .spinner {
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          border: 2px solid rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          border-top-color: white;
+          animation: spin 0.8s linear infinite;
+      }
+
+      @keyframes spin {
+          to { transform: rotate(360deg); }
+      }
 
     </style>
 </head>
@@ -1208,6 +1248,19 @@
             <span></span>
             <span></span>
         </button>
+
+      <div class="mobile-menu-overlay"></div>
+      <div class="mobile-menu">
+          <ul class="mobile-nav-links">
+              <li><a href="#o-nas">O nas</a></li>
+              <li><a href="#oferta">Oferta</a></li>
+              <li><a href="#dlaczego-my">Dlaczego my</a></li>
+              <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+          <div class="mobile-menu-cta">
+              <a href="#kontakt" class="btn-primary">Bezpłatna wycena</a>
+          </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
@@ -1436,108 +1489,6 @@
 
 
     <!-- Contact Section -->
-    <!--
-    <section class="contact" id="kontakt">
-        <div class="section-header">
-            <span class="section-label">Kontakt</span>
-            <h2 class="section-title">Porozmawiajmy<br>o Twoim bezpieczeństwie</h2>
-            <div class="section-divider"></div>
-        </div>
-
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <h3>Piotr Zdziechowski</h3>
-                <p>Skontaktuj się ze mną, aby omówić Twoje potrzeby ubezpieczeniowe. Pierwsza konsultacja jest zawsze bezpłatna i niezobowiązująca.</p>
-
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <div class="contact-item-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-                            </svg>
-                        </div>
-                        <div class="contact-item-content">
-                            <span class="contact-item-label">Telefon</span>
-                            <span class="contact-item-value">+48 793 935 555</span>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-item-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
-                        </div>
-                        <div class="contact-item-content">
-                            <span class="contact-item-label">Email</span>
-                            <span class="contact-item-value">zdziechowski.ubezpieczenia@gmail.com</span>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-item-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                                <circle cx="12" cy="10" r="3"/>
-                            </svg>
-                        </div>
-                        <div class="contact-item-content">
-                            <span class="contact-item-label">Biuro</span>
-                            <span class="contact-item-value">ul. Piotrkowska 234/236, 90-360 Łódź <br>(po wcześniejszym umówieniu się)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Imię i nazwisko</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Numer telefonu</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Adres email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="insurance-type">Rodzaj ubezpieczenia</label>
-                    <select id="insurance-type" name="insurance-type">
-                        <option value="">Wybierz...</option>
-                        <option value="majatkowe">Ubezpieczenie majątkowe</option>
-                        <option value="komunikacyjne">Ubezpieczenie komunikacyjne</option>
-                        <option value="zycie">Ubezpieczenie na życie</option>
-                        <option value="zdrowotne">Ubezpieczenie zdrowotne</option>
-                        <option value="firmowe">Ubezpieczenie firmowe</option>
-                        <option value="turystyczne">Ubezpieczenie turystyczne</option>
-                        <option value="inne">Inne</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Wiadomość</label>
-                    <textarea id="message" name="message" placeholder="Opisz krótko swoje potrzeby ubezpieczeniowe..."></textarea>
-                </div>
-
-                <button type="submit" class="btn-primary">
-                    <span>Wyślij zapytanie</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="22" y1="2" x2="11" y2="13"/>
-                        <polygon points="22,2 15,22 11,13 2,9"/>
-                    </svg>
-                </button>
-            </form>
-        </div>
-    </section>
-    -->
-
-    <!-- Contact Section -->
 <section class="contact" id="kontakt">
     <div class="section-header">
         <span class="section-label">Kontakt</span>
@@ -1638,49 +1589,6 @@
         </form>
     </div>
 </section>
-
-    <style>
-    .form-message {
-        padding: 12px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        display: none;
-        font-size: 14px;
-    }
-
-    .form-message.success {
-        background-color: #d4edda;
-        color: #155724;
-        border: 1px solid #c3e6cb;
-        display: block;
-    }
-
-    .form-message.error {
-        background-color: #f8d7da;
-        color: #721c24;
-        border: 1px solid #f5c6cb;
-        display: block;
-    }
-
-    .btn-primary:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-    }
-
-    .spinner {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        border-top-color: white;
-        animation: spin 0.8s linear infinite;
-    }
-
-    @keyframes spin {
-        to { transform: rotate(360deg); }
-    }
-    </style>
 
     <script>
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
@@ -1806,12 +1714,6 @@
             });
         });
 
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Dziękujemy za wiadomość! Skontaktujemy się wkrótce.');
-            this.reset();
-        });
 
         // Intersection Observer for animations
         const observerOptions = {
@@ -1834,6 +1736,35 @@
             el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
         });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                mobileMenuOverlay.classList.toggle('active');
+            });
+
+            mobileMenuOverlay.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+            });
+
+            // Zamknij menu po kliknięciu w link
+            document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    mobileMenuOverlay.classList.remove('active');
+                });
+            });
+        }
+
     </script>
 </body>
 </html>
