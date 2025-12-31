@@ -2,6 +2,7 @@
   "name": "sigma-ubezpieczenia",
   "version": "1.0.0",
   "description": "Strona Sigma Ubezpieczenia",
+  "type": "module",
   "main": "index.html",
   "dependencies": {
     "nodemailer": "^6.9.7"
