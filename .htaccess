@@ -7,3 +7,11 @@ RewriteRule ^(.*)$ https://sigmaubezpieczenia.pl/$1 [L,R=301]
 # 2. Wymuszenie bezpiecznego protokołu HTTPS (jeśli jeszcze go nie masz)
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Przekierowanie z index.html na czysty adres strony
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/ [NC]
+RewriteRule ^index\.html$ https://sigmaubezpieczenia.pl/ [R=301,L]
+
+# Przekierowanie z index.php na czysty adres strony (jeśli używasz PHP)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\ HTTP/ [NC]
+RewriteRule ^index\.php$ https://sigmaubezpieczenia.pl/ [R=301,L]
