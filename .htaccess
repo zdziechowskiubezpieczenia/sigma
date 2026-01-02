@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# 1. Przekierowanie z WWW na BEZ WWW
+RewriteCond %{HTTP_HOST} ^www\.sigmaubezpieczenia\.pl [NC]
+RewriteRule ^(.*)$ https://sigmaubezpieczenia.pl/$1 [L,R=301]
+
+# 2. Wymuszenie bezpiecznego protokołu HTTPS (jeśli jeszcze go nie masz)
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
