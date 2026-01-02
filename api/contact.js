@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
-  // Tylko metoda dot. POST
+  // Tylko metoda POST
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Metoda niedozwolona' });
   }
@@ -27,11 +27,26 @@ export default async function handler(req, res) {
   const insuranceTypeLabel = insuranceTypes[insuranceType] || 'Nie wybrano';
 
   try {
+    // Debug - sprawdź czy zmienne są dostępne (usuń po naprawieniu)
+    console.log('SMTP Config:', {
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      user: process.env.SMTP_USER,
+      hasPassword: !!process.env.SMTP_PASSWORD,
+      from: process.env.SMTP_FROM
+    });
+
+    // Sprawdź czy wszystkie zmienne są ustawione
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
+      throw new Error('Brak wymaganych zmiennych środowiskowych SMTP');
+    }
+
     // Konfiguracja transportera SMTP
+    const port = parseInt(process.env.SMTP_PORT) || 587;
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT),
-      secure: false, // true dla portu 465, false dla innych portów
+      port: port,
+      secure: port === 465, // true dla 465 (SSL), false dla 587 (STARTTLS)
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASSWORD,
