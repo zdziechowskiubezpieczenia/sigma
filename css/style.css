@@ -711,8 +711,6 @@
         flex-shrink: 0;
     }
 
-    
-
     .contact-item-icon svg {
         width: 20px;
         height: 20px;
@@ -1262,3 +1260,26 @@
   @keyframes spin {
       to { transform: rotate(360deg); }
   }
+
+
+  /* =========================
+   SVG ICON SIZES (GLOBAL)
+========================= */
+
+    /* Ikony oferty */
+    .service-icon {
+        width: 56px;
+        height: 56px;
+    }
+
+    /* Dlaczego my */
+    .feature-icon img {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Kontakt */
+    .contact-item-icon img {
+        width: 16px;
+        height: 16px;
+    }
