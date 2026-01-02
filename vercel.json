@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "216.198.79.1"
+        }
+      ],
+      "destination": "https://sigmaubezpieczenia.pl/:path*",
+      "permanent": true
+    }
+  ]
+}
