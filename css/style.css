@@ -717,6 +717,11 @@
         color: var(--gold-light);
     }
 
+    .contact-item-icon img {
+    width: 20px;
+    height: 20px;
+}
+
     .contact-item-content {
         display: flex;
         flex-direction: column;
